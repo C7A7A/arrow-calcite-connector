@@ -5,27 +5,51 @@
 /* *************************************************** */
 package com.ibm.connect.sdk.jdbc;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+
+import org.apache.arrow.flight.FlightStream;
+import org.apache.arrow.vector.DateDayVector;
+import org.apache.arrow.vector.DateMilliVector;
+import org.apache.arrow.vector.FieldVector;
+import org.apache.arrow.vector.LargeVarCharVector;
+import org.apache.arrow.vector.TimeMicroVector;
+import org.apache.arrow.vector.TimeMilliVector;
+import org.apache.arrow.vector.TimeNanoVector;
+import org.apache.arrow.vector.TimeSecVector;
+import org.apache.arrow.vector.TimeStampMicroTZVector;
+import org.apache.arrow.vector.TimeStampMilliTZVector;
+import org.apache.arrow.vector.TimeStampNanoTZVector;
+import org.apache.arrow.vector.TimeStampSecTZVector;
+import org.apache.arrow.vector.VarCharVector;
+import org.apache.arrow.vector.VectorSchemaRoot;
+import org.apache.arrow.vector.types.pojo.ArrowType;
+import org.apache.arrow.vector.types.pojo.Schema;
+import org.apache.arrow.vector.util.Text;
+import org.slf4j.Logger;
+
 import com.google.common.collect.HashBasedTable;
 import com.ibm.connect.sdk.api.Connector;
 import com.ibm.connect.sdk.api.TargetInteraction;
 import com.ibm.connect.sdk.util.ModelMapper;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetDescriptor;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetField;
-import org.apache.arrow.flight.FlightStream;
-import org.apache.arrow.vector.*;
-import org.apache.arrow.vector.types.pojo.ArrowType;
-import org.apache.arrow.vector.types.pojo.Schema;
-import org.apache.arrow.vector.util.Text;
-import org.slf4j.Logger;
-
-import java.sql.Date;
-import java.sql.*;
-import java.time.LocalDateTime;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * An interaction with a JDBC asset as a target.

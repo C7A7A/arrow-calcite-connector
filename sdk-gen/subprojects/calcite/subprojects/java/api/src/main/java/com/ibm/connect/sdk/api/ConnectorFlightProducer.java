@@ -61,13 +61,13 @@ public abstract class ConnectorFlightProducer implements FlightProducer
      * Action type to check the health of the service and return its version.
      */
     private static final String ACTION_HEALTH_CHECK = "health_check";
-    private static final String ACTION_HEALTH_CHECK_DESCRIPTION = "Check the health of the service and return its version";
+    private static final String ACTION_HEALTH_CHECK_DESCRIPTION = "Check the health of the service and return its version XDDDD";
 
     /**
      * Action type to list data source types supported by this Flight producer.
      */
     private static final String ACTION_LIST_DATASOURCE_TYPES = "list_datasource_types";
-    private static final String ACTION_LIST_DATASOURCE_TYPES_DESCRIPTION = "List data source types supported by this Flight producer";
+    private static final String ACTION_LIST_DATASOURCE_TYPES_DESCRIPTION = "List data source types supported by this Flight producer XDDDDDD";
 
     /**
      * Action type to perform any setup required before a partitioned write such as

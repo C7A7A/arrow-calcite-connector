@@ -66,9 +66,9 @@ artifacts {
 //
 dependencies {
   api project(':' + rootProject.name + '-java-api-models')
-  api project(':' + rootProject.name + '-java-api')
-    implementation project(path: ':wdp-connect-sdk-gen-calcite-subprojects-java-util')
-    implementation project(path: ':wdp-connect-sdk-gen-java-jdbc')
-
-    testImplementation group: 'junit', name: 'junit', version: project['junit.version']
+//  api project(':' + rootProject.name + '-java-api')
+  implementation project(path: ':wdp-connect-sdk-gen-calcite-subprojects-java-util')
+  implementation project(path: ':wdp-connect-sdk-gen-calcite-subprojects-java-api')
+  testImplementation group: 'junit', name: 'junit', version: project['junit.version']
+  implementation group: 'org.apache.arrow', name: 'arrow-jdbc', version: project['arrow.version']
 }

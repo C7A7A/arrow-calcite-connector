@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/subprojects/calcite" />
+            <option value="$PROJECT_DIR$/subprojects/calcite-flight" />
+            <option value="$PROJECT_DIR$/subprojects/calcite/subprojects/java/api" />
+            <option value="$PROJECT_DIR$/subprojects/calcite/subprojects/java/util" />
+            <option value="$PROJECT_DIR$/subprojects/java/api" />
+            <option value="$PROJECT_DIR$/subprojects/java/api/models" />
+            <option value="$PROJECT_DIR$/subprojects/java/basic" />
+            <option value="$PROJECT_DIR$/subprojects/java/bundle" />
+            <option value="$PROJECT_DIR$/subprojects/java/flight-app" />
+            <option value="$PROJECT_DIR$/subprojects/java/jdbc" />
+            <option value="$PROJECT_DIR$/subprojects/java/jdbc/derby" />
+            <option value="$PROJECT_DIR$/subprojects/java/jdbc/generic" />
+            <option value="$PROJECT_DIR$/subprojects/java/noop" />
+            <option value="$PROJECT_DIR$/subprojects/java/test" />
+            <option value="$PROJECT_DIR$/subprojects/java/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

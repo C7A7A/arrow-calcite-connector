@@ -4,7 +4,7 @@
 .settings
 bin/
 build/
-subprojects/*
-!subprojects/java/
+# subprojects/*
+# !subprojects/java/
 testdb/
 *.log

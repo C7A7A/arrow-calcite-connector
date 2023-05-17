@@ -5,10 +5,7 @@
 /* *************************************************** */
 package com.yourorganizationname.connect.calcite;
 
-import java.util.Arrays;
-
 import com.ibm.connect.sdk.api.Connector;
-import com.ibm.connect.sdk.api.ConnectorFactory;
 import com.ibm.connect.sdk.api.PooledConnectorFactory;
 import com.ibm.wdp.connect.common.sdk.api.models.ConnectionProperties;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightDatasourceTypes;

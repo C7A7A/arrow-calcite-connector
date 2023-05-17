@@ -5,20 +5,14 @@
 /* *************************************************** */
 package com.yourorganizationname.connect.calcite;
 
-import java.sql.Driver;
-import java.util.List;
-
 import com.ibm.connect.sdk.jdbc.JdbcConnector;
 import com.ibm.connect.sdk.jdbc.JdbcSourceInteraction;
 import com.ibm.connect.sdk.jdbc.JdbcTargetInteraction;
-import org.apache.arrow.flight.Ticket;
-
-import com.ibm.connect.sdk.api.RowBasedConnector;
-import com.ibm.wdp.connect.common.sdk.api.models.ConnectionActionConfiguration;
-import com.ibm.wdp.connect.common.sdk.api.models.ConnectionActionResponse;
 import com.ibm.wdp.connect.common.sdk.api.models.ConnectionProperties;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetDescriptor;
-import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetsCriteria;
+import org.apache.arrow.flight.Ticket;
+
+import java.sql.Driver;
 
 @SuppressWarnings({ "PMD.AvoidDollarSigns", "PMD.ClassNamingConventions" })
 public class CalciteConnector extends JdbcConnector

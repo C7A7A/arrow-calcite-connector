@@ -5,15 +5,12 @@
 /* *************************************************** */
 package com.yourorganizationname.connect.calcite;
 
-import java.util.Collections;
-
-import com.ibm.wdp.connect.common.sdk.api.models.CustomDatasourceTypeAction;
-import com.ibm.wdp.connect.common.sdk.api.models.CustomDatasourceTypeActionProperties;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomDatasourceTypeProperty;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomDatasourceTypeProperty.TypeEnum;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightDatasourceType;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightDatasourceTypeProperties;
-import com.ibm.wdp.connect.common.sdk.api.models.DatasourceTypePropertyValues;
+
+import java.util.Collections;
 
 @SuppressWarnings({ "PMD.AvoidDollarSigns", "PMD.ClassNamingConventions" })
 public class CalciteDatasourceType extends CustomFlightDatasourceType
@@ -66,9 +63,9 @@ public class CalciteDatasourceType extends CustomFlightDatasourceType
                 .description("The name of the table to read from").type(TypeEnum.STRING).required(false));
         properties.addSourceItem(new CustomDatasourceTypeProperty().name("row_limit").label("Row limit")
                 .description("The maximum number of rows to return").type(TypeEnum.INTEGER).required(false));
-        properties.addSourceItem(new CustomDatasourceTypeProperty().name("byte_limit").label("Byte limit")
-                .description("The maximum number of bytes to return. Use any of these suffixes; KB, MB, GB, or TB").type(TypeEnum.STRING)
-                .required(false));
+//        properties.addSourceItem(new CustomDatasourceTypeProperty().name("byte_limit").label("Byte limit")
+//                .description("The maximum number of bytes to return. Use any of these suffixes; KB, MB, GB, or TB").type(TypeEnum.STRING)
+//                .required(false));
 
         // Define the target interaction properties.
 //        properties.addTargetItem(new CustomDatasourceTypeProperty().name("schema_name").label("Schema name")

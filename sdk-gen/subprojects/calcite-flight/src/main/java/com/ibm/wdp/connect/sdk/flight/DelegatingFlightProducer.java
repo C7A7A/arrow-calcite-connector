@@ -58,7 +58,7 @@ public class DelegatingFlightProducer implements FlightProducer
      * Action type to check the health of the service and return its version.
      */
     private static final String ACTION_HEALTH_CHECK = "health_check";
-    private static final String ACTION_HEALTH_CHECK_DESCRIPTION = "Check the health of the service and return its version";
+    private static final String ACTION_HEALTH_CHECK_DESCRIPTION = "Check the health of the service and return its version (flight testing)";
 
     /**
      * Action type to list data source types supported by this Flight producer.

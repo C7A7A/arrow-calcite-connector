@@ -5,17 +5,8 @@
 /* *************************************************** */
 package com.yourorganizationname.connect.calcite;
 
-import static org.slf4j.LoggerFactory.getLogger;
-
-import com.ibm.connect.sdk.jdbc.JdbcConnector;
-import org.slf4j.Logger;
-import com.ibm.connect.sdk.api.Record;
-import com.ibm.connect.sdk.api.RowBasedTargetInteraction;
 import com.ibm.connect.sdk.jdbc.JdbcTargetInteraction;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetDescriptor;
-import com.ibm.connect.sdk.util.ModelMapper;
-
-import java.util.Properties;
 
 @SuppressWarnings({ "PMD.AvoidDollarSigns", "PMD.ClassNamingConventions" })
 public class CalciteTargetInteraction extends JdbcTargetInteraction {

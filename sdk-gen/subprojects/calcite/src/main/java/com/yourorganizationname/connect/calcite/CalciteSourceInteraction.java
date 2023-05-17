@@ -6,11 +6,8 @@
 package com.yourorganizationname.connect.calcite;
 
 import com.ibm.connect.sdk.api.TicketInfo;
-import com.ibm.connect.sdk.jdbc.AssetFieldType;
 import com.ibm.connect.sdk.jdbc.JdbcSourceInteraction;
-
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetDescriptor;
-import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetField;
 import org.apache.arrow.flight.Ticket;
 
 @SuppressWarnings({ "PMD.AvoidDollarSigns", "PMD.ClassNamingConventions" })

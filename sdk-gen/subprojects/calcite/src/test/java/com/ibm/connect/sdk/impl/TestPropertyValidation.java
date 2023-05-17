@@ -18,23 +18,21 @@ public class TestPropertyValidation
      * Test connection properties negative.
      */
     @Test(expected = UnsupportedOperationException.class)
-    public void testConnectionPropertiesNegative()
-    {
+    public void testConnectionPropertiesNegative() throws Exception {
         final String typeName = "TODO";
         final ConnectionProperties properties = new ConnectionProperties();
         // Setup connection properties
-        CalciteConnectorFactory.getInstance().createConnector(typeName, properties);
+        CalciteConnectorFactory.INSTANCE.createConnector(typeName, properties);
     }
 
     /**
      * Test connection properties.
      */
     @Test
-    public void testConnectionProperties()
-    {
+    public void testConnectionProperties() throws Exception {
         final String typeName = "calcite";
         final ConnectionProperties properties = new ConnectionProperties();
         // Setup connection properties
-        assertNotNull(CalciteConnectorFactory.getInstance().createConnector(typeName, properties));
+        assertNotNull(CalciteConnectorFactory.INSTANCE.createConnector(typeName, properties));
     }
 }

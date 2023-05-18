@@ -31,17 +31,18 @@ public class CalciteConnector extends JdbcConnector
     // TODO: I don't know if this driver url is correct.
     @Override
     protected Driver getDriver() throws Exception {
-        try {
-            return (Driver) Class.forName("org.apache.calcite.jdbc.Driver").newInstance();
-        } catch (ClassNotFoundException e) {
-            return null;
-        }
+//        try {
+//            return (Driver) Class.forName("org.apache.calcite.jdbc.Driver").newInstance();
+//        } catch (ClassNotFoundException e) {
+//            return null;
+//        }
+        return null;
     }
 
     // TODO: Probably need to add some params (host? port?)
     @Override
     protected String getConnectionURL() {
-        return "jdbc:calcite:";
+        return "jdbc:calcite:schemaType=CUSTOM; schemaFactory=org.apache.calcite.adapter.csv.CsvSchemaFactory; schema=sales; schema.directory=D:&bsol;Calcite&bsol;sales";
     }
 
     @Override

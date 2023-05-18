@@ -251,6 +251,7 @@ public abstract class JdbcConnector implements Connector<JdbcSourceInteraction, 
                 LOGGER.info("Connecting to " + url);
                 final Driver driver = getDriver();
                 connection = (driver != null) ? driver.connect(url, credentials) : DriverManager.getConnection(url, credentials);
+                LOGGER.info("After connection");
                 dbMetadata = connection.getMetaData();
                 escapeString = dbMetadata.getSearchStringEscape();
                 final String identifierQuoteString = dbMetadata.getIdentifierQuoteString();
@@ -338,6 +339,7 @@ public abstract class JdbcConnector implements Connector<JdbcSourceInteraction, 
     @Override
     public List<CustomFlightAssetDescriptor> discoverAssets(CustomFlightAssetsCriteria criteria) throws Exception
     {
+        LOGGER.info("INSIDE DISCOVER ASSETS");
         final Properties filters = ModelMapper.toProperties(criteria.getFilters());
         final String schemaNamePattern = filters.getProperty("schema_name_pattern");
         final String path = normalizePath(criteria.getPath());

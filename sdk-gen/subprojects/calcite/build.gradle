@@ -71,4 +71,6 @@ dependencies {
   implementation project(path: ':wdp-connect-sdk-gen-calcite-subprojects-java-api')
   testImplementation group: 'junit', name: 'junit', version: project['junit.version']
   implementation group: 'org.apache.arrow', name: 'arrow-jdbc', version: project['arrow.version']
+  //  implementation group: 'org.apache.calcite', name: 'calcite-core', version: project['calcite.version']
+  implementation group: 'org.apache.calcite', name: 'calcite-example-csv', version: project['calcite.csv.version']
 }

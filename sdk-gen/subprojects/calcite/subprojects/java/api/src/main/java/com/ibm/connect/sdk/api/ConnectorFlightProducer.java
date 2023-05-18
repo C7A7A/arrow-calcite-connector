@@ -384,6 +384,7 @@ public abstract class ConnectorFlightProducer implements FlightProducer
                 if (action.getBody() == null || action.getBody().length == 0) {
                     throw new IllegalArgumentException("Missing action body");
                 }
+                LOGGER.info("INSIDE ELSE IN ConnectorFlighrPRoducer");
                 final CustomFlightActionRequest request = modelMapper.fromBytes(action.getBody(), CustomFlightActionRequest.class);
                 try (Connector<?, ?> connector
                         = connectorFactory.createConnector(request.getDatasourceTypeName(), request.getConnectionProperties())) {

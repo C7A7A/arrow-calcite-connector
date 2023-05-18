@@ -8,12 +8,7 @@ package com.ibm.wdp.connect.sdk.flight;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.ServiceLoader;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -317,6 +312,7 @@ public class DelegatingFlightProducer implements FlightProducer
                 listener.onNext(result);
                 listener.onCompleted();
             } else {
+                LOGGER.info("Delegating Flight Server, action type: {}", action.getType());
                 final FlightProducer producer = getProducerFromAction(action.getBody());
                 producer.doAction(context, action, listener);
             }

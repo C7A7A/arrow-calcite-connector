@@ -42,7 +42,8 @@ public class CalciteConnector extends JdbcConnector
     // TODO: Probably need to add some params (host? port?)
     @Override
     protected String getConnectionURL() {
-        return "jdbc:calcite:schemaType=CUSTOM; schemaFactory=org.apache.calcite.adapter.csv.CsvSchemaFactory; schema=sales; schema.directory=D:&bsol;Calcite&bsol;sales";
+        String postgresConnUrl ="jdbc:calcite:schemaType=CUSTOM; schemaFactory=org.apache.calcite.adapter.jdbc.JdbcSchema$Factory; schema=public; schema.jdbcDriver=org.postgresql.Driver; schema.jdbcUrl=jdbc:postgresql://172.17.0.3:5432/postgres; schema.jdbcUser=postgres; schema.jdbcPassword=postgres";
+        return postgresConnUrl;
     }
 
     @Override

@@ -276,6 +276,7 @@ public abstract class JdbcConnector implements Connector<JdbcSourceInteraction, 
                 LOGGER.info("Connecting to " + url);
                 final Driver driver = getDriver();
                 connection = (driver != null) ? driver.connect(url, credentials) : DriverManager.getConnection(url, credentials);
+                LOGGER.info("After connection");
                 dbMetadata = connection.getMetaData();
                 escapeString = dbMetadata.getSearchStringEscape();
                 final String identifierQuoteString = dbMetadata.getIdentifierQuoteString();

@@ -10,13 +10,21 @@ import com.ibm.connect.sdk.jdbc.JdbcSourceInteraction;
 import com.ibm.connect.sdk.jdbc.JdbcTargetInteraction;
 import com.ibm.wdp.connect.common.sdk.api.models.ConnectionProperties;
 import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetDescriptor;
+import com.ibm.wdp.connect.common.sdk.api.models.CustomFlightAssetsCriteria;
 import org.apache.arrow.flight.Ticket;
 
 import java.sql.Driver;
+import java.util.List;
+
+import static org.slf4j.LoggerFactory.getLogger;
+import org.slf4j.Logger;
 
 @SuppressWarnings({ "PMD.AvoidDollarSigns", "PMD.ClassNamingConventions" })
 public class CalciteConnector extends JdbcConnector
 {
+    private static final Logger LOGGER = getLogger(JdbcConnector.class);
+
+    private ConnectionProperties props;
     /**
      * Creates an Apache Calcite connector.
      *
@@ -26,6 +34,7 @@ public class CalciteConnector extends JdbcConnector
     public CalciteConnector(ConnectionProperties properties)
     {
         super(properties);
+        this.props = properties;
     }
 
     // TODO: I don't know if this driver url is correct.
@@ -39,11 +48,29 @@ public class CalciteConnector extends JdbcConnector
         return null;
     }
 
-    // TODO: Probably need to add some params (host? port?)
+    /*
+    Example jupyter request:
+    {
+    "datasource_type_name": "calcite",
+        "connection_properties": {
+            "schemaFactory": "org.apache.calcite.adapter.jdbc.JdbcSchema$Factory",
+            "schema": "public",
+            "schema.jdbcDriver": "org.postgresql.Driver",
+            "schema.jdbcUrl": "jdbc:postgresql://172.17.0.2:5432/postgres",
+            "schema.jdbcUser": "postgres",
+            "schema.jdbcPassword": "postgres"
+        }
+    }
+    */
     @Override
     protected String getConnectionURL() {
-        String postgresConnUrl ="jdbc:calcite:schemaType=CUSTOM; schemaFactory=org.apache.calcite.adapter.jdbc.JdbcSchema$Factory; schema=public; schema.jdbcDriver=org.postgresql.Driver; schema.jdbcUrl=jdbc:postgresql://172.17.0.3:5432/postgres; schema.jdbcUser=postgres; schema.jdbcPassword=postgres";
-        return postgresConnUrl;
+        LOGGER.info("getConn: Before conn props");
+        props.entrySet().stream().forEach(x -> LOGGER.info(x.getKey() + " : " + x.getValue()));
+
+        final StringBuilder connUrl = new StringBuilder("jdbc:calcite:schemaType=CUSTOM; ");
+        props.entrySet().stream().forEach(x -> connUrl.append(x.getKey() + "=" + x.getValue() + ";"));
+
+        return connUrl.toString();
     }
 
     @Override
@@ -56,13 +83,13 @@ public class CalciteConnector extends JdbcConnector
         return new CalciteTargetInteraction(this, asset);
     }
 
-//    @Override
-//    public List<CustomFlightAssetDescriptor> discoverAssets(CustomFlightAssetsCriteria criteria) throws Exception
-//    {
-//        // TODO Auto-generated method stub
-//        return null;
-//    }
-//
+    @Override
+    public List<CustomFlightAssetDescriptor> discoverAssets(CustomFlightAssetsCriteria criteria) throws Exception
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 //    @Override
 //    public void close() throws Exception
 //    {

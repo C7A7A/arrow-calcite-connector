@@ -311,6 +311,7 @@ public abstract class ConnectorFlightProducer implements FlightProducer
     @Override
     public void doAction(CallContext context, Action action, StreamListener<Result> listener)
     {
+        LOGGER.warn("Class: calcite\\ConnectorFlightProducer");
         try {
             final CustomFlightActionResponse response = new CustomFlightActionResponse();
             if (ACTION_HEALTH_CHECK.equals(action.getType())) {
@@ -388,11 +389,18 @@ public abstract class ConnectorFlightProducer implements FlightProducer
                 final CustomFlightActionRequest request = modelMapper.fromBytes(action.getBody(), CustomFlightActionRequest.class);
                 try (Connector<?, ?> connector
                         = connectorFactory.createConnector(request.getDatasourceTypeName(), request.getConnectionProperties())) {
+                    LOGGER.info("INSIDE ELSE IN ConnectorFlighrPRoducer BEFORE CONNECT");
+                    //FIXME Last place where we got logger before error
+                    //Error message was
+                    //java.lang.LinkageError: loading constraint violation when resolving method "com/google/common/collect/Maps.asMap(Ljava/util/Set;Lcom/google/common/base/Function;)Ljava/util/Map;" : loader "com/ibm/ws/classloading/internal/AppClassLoader@625b753" of class "org/apache/calcite/util/NameSet" and loader "org/eclipse/osgi/internal/loader/EquinoxClassLoader@773db431" of class "com/google/common/collect/Maps" have different types for the method signature
                     connector.connect();
+                    LOGGER.info("INSIDE ELSE IN ConnectorFlighrPRoducer AFTER CONNECT");
                     response.setResponseProperties(connector.performAction(action.getType(), request.getRequestProperties()));
+                    LOGGER.info("INSIDE ELSE IN ConnectorFlighrPRoducer AFTER SETTING RESPONSE");
                 }
             }
             final Result result = new Result(modelMapper.toBytes(response));
+            LOGGER.info("INSIDE ELSE IN ConnectorFlighrPRoducer AFTER RESULT");
             listener.onNext(result);
             listener.onCompleted();
         }

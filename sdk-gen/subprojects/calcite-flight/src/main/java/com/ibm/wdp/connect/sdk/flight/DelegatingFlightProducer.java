@@ -280,6 +280,7 @@ public class DelegatingFlightProducer implements FlightProducer
     @Override
     public void doAction(CallContext context, Action action, StreamListener<Result> listener)
     {
+        LOGGER.warn("Class: calcite-flight\\DelegationFlightProducer");
         if (LOGGER.isTraceEnabled()) {
             LOGGER.trace("doAction entry, action=" + action.getType());
         }

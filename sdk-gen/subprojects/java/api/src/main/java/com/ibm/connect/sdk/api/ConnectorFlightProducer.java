@@ -311,6 +311,7 @@ public abstract class ConnectorFlightProducer implements FlightProducer
     @Override
     public void doAction(CallContext context, Action action, StreamListener<Result> listener)
     {
+        LOGGER.warn("Class: sdk-gen\\ConnectorFlightProducer");
         try {
             final CustomFlightActionResponse response = new CustomFlightActionResponse();
             if (ACTION_HEALTH_CHECK.equals(action.getType())) {

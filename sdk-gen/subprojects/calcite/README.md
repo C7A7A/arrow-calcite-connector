@@ -5,9 +5,9 @@ Failed attempt to implement ArrowFlight Calcite connector.
 Connector is based on generic JDBC connector.
 
 ### What went wrong?  
-Because of calcite library added to <code>sdk-gen/subprojects/calcite/build.gradle</code>\
+Because of calcite library added to <code>sdk-gen/subprojects/calcite/build.gradle</code>
 
-<code>implementation group: 'org.apache.calcite', name: 'calcite-core', version: project['calcite.version']
+<code>implementation group: 'org.apache.calcite', name: 'calcite-core', version: project['calcite.version']</code>
 
 Connector cannot obtain connection to calcite in <code>connect</code> method in <code>sdk-gen/subprojects/calcite/src/main/java/com/ibm/connect/sdk/jdbc/JdbcConnector.java</code>
 

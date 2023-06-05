@@ -5,10 +5,9 @@ Failed attempt to implement ArrowFlight Calcite connector.
 Connector is based on generic JDBC connector.
 
 ### What went wrong?  
-Because of calcite libraries added to <code>sdk-gen/subprojects/calcite/build.gradle</code> \
+Because of calcite library added to <code>sdk-gen/subprojects/calcite/build.gradle</code>\
 
 <code>implementation group: 'org.apache.calcite', name: 'calcite-core', version: project['calcite.version']
-implementation group: 'org.postgresql', name: 'postgresql', version: project['postgresql.version'] </code>
 
 Connector cannot obtain connection to calcite in <code>connect</code> method in <code>sdk-gen/subprojects/calcite/src/main/java/com/ibm/connect/sdk/jdbc/JdbcConnector.java</code>
 
@@ -26,4 +25,4 @@ https://mvnrepository.com/artifact/org.apache.arrow/flight-grpc/11.0.0
 4. <code> ./gradlew dockerStart </code> to start docker container
 5. <code> docker exec -it wdp-connect-sdk-gen-calcite-flight bash </code> in terminal to connect to docker container
 6. <code> tail -f /logs/trace.log </code> to see logs
-7. open jupyter notebook (provided in repo) and run cells. You should see output in terminal.
+7. Open jupyter notebook (provided in repo) and run cells. You should see output in terminal.
